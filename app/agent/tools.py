@@ -23,7 +23,8 @@ TOOL_SCHEMAS: list[dict] = [
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "ticker": {"type": "string", "description": "Stock symbol, e.g. AAPL"}
+                    "ticker": {"type": "string", "description": "Yahoo Finance symbol. US: AAPL. "
+                               "India: add .NS for NSE (RELIANCE.NS) or .BO for BSE."}
                 },
                 "required": ["ticker"],
             },

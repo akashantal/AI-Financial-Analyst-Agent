@@ -14,7 +14,7 @@ from app.services import memory
 router = APIRouter()
 
 
-@router.post("/", response_model=schemas.AnalyzeResponse)
+@router.post("", response_model=schemas.AnalyzeResponse)
 async def analyze(
     req: schemas.AnalyzeRequest,
     remember: bool = Query(True, description="Persist + embed the briefing for later recall"),

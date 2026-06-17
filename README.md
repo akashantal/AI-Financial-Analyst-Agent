@@ -63,6 +63,30 @@ curl -X POST localhost:8000/analyze -H 'content-type: application/json' \
   -d '{"question":"How has NVDA performed over the last 6 months and is it overbought?"}'
 ```
 
+### Indian markets (NSE / BSE)
+
+Works out of the box via Yahoo Finance symbols — figures come back in **INR**:
+
+- **NSE**: append `.NS` → `RELIANCE.NS`, `TCS.NS`, `INFY.NS`, `HDFCBANK.NS`
+- **BSE**: append `.BO` → `RELIANCE.BO`, `500325.BO`
+- **Indices**: `^NSEI` (Nifty 50), `^BSESN` (Sensex)
+
+```bash
+curl -s localhost:8000/market/RELIANCE.NS/quote
+curl -s "localhost:8000/market/TCS.NS/indicators?period=6mo"
+curl -s "localhost:8000/market/compare?tickers=TCS.NS&tickers=INFY.NS&period=1y"
+```
+
+The agent knows the suffix convention, so plain names work too:
+
+```bash
+curl -s -X POST localhost:8000/analyze -H 'content-type: application/json' \
+  -d '{"question":"How has Reliance performed over the last 6 months?"}'
+```
+
+Note: Yahoo's fundamentals are sometimes sparser for Indian tickers (some P/E or margin
+fields may be null); price/indicator data is reliable.
+
 ## Architecture
 
 ```
