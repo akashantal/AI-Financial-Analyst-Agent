@@ -1,0 +1,32 @@
+[
+  {
+    "question": "How has AAPL performed over the last 6 months and is it overbought?",
+    "expected_tools": ["get_indicators"],
+    "expected_ticker": "AAPL"
+  },
+  {
+    "question": "What is the current price of MSFT?",
+    "expected_tools": ["get_quote"],
+    "expected_ticker": "MSFT"
+  },
+  {
+    "question": "Give me the valuation fundamentals for GOOGL.",
+    "expected_tools": ["get_fundamentals"],
+    "expected_ticker": "GOOGL"
+  },
+  {
+    "question": "Compare NVDA and AMD on returns and volatility over the past year.",
+    "expected_tools": ["compare_tickers"],
+    "expected_ticker": "NVDA"
+  },
+  {
+    "question": "What's the latest news on TSLA?",
+    "expected_tools": ["get_news"],
+    "expected_ticker": "TSLA"
+  },
+  {
+    "question": "Analyze AMZN's momentum and recent headlines.",
+    "expected_tools": ["get_indicators", "get_news"],
+    "expected_ticker": "AMZN"
+  }
+]
